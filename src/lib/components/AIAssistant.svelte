@@ -1,12 +1,12 @@
 <script lang="ts">
-  let isOpen = false;
-  let input = '';
-  let messages: { role: 'user' | 'bot'; text: string }[] = [
+  let isOpen = $state(false);
+  let input = $state('');
+  let messages = $state<{ role: 'user' | 'bot'; text: string }[]>([
     { role: 'bot', text: "Hey! 👋 I'm Ndifreke's AI assistant. I can tell you about his projects, skills, experience, and availability. What would you like to know?" }
-  ];
-  let isTyping = false;
-  let messagesEl: HTMLElement;
-  let showSuggestions = true;
+  ]);
+  let isTyping = $state(false);
+  let showSuggestions = $state(true);
+  let messagesEl = $state<HTMLElement>();
 
   const suggestions = [
     "What projects has he built?",
@@ -47,10 +47,10 @@ Keep answers friendly, brief, and focused.
         })
       });
       const data = await res.json();
-      const reply = data.content?.map((b: any) => b.text || '').join('') || "Sorry, I had trouble with that. Try emailing Ndifreke directly!";
+      const reply = data.content?.map((b: any) => b.text || '').join('') || "Sorry, I had trouble with that!";
       messages = [...messages, { role: 'bot', text: reply }];
     } catch {
-      messages = [...messages, { role: 'bot', text: "Oops — something went wrong. Feel free to reach out at hello@ndifrekeudoh.dev!" }];
+      messages = [...messages, { role: 'bot', text: "Oops — something went wrong. Reach out at hello@ndifrekeudoh.dev!" }];
     }
 
     isTyping = false;
@@ -74,14 +74,13 @@ Keep answers friendly, brief, and focused.
 </script>
 
 <!-- FAB -->
-<button class="ai-fab" on:click={() => isOpen = !isOpen} aria-label="Open AI assistant">
+<button class="ai-fab" onclick={() => isOpen = !isOpen} aria-label="Open AI assistant">
   <div class="ai-fab-badge">AI</div>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
   </svg>
 </button>
 
-<!-- Panel -->
 <div class="ai-panel" class:open={isOpen} role="dialog" aria-label="AI Portfolio Assistant">
   <div class="ai-header">
     <div class="ai-avatar">AI</div>
@@ -89,7 +88,7 @@ Keep answers friendly, brief, and focused.
       <div class="ai-name">Portfolio Assistant</div>
       <div class="ai-status">Online — Ask me anything</div>
     </div>
-    <button class="ai-close" on:click={() => isOpen = false} aria-label="Close">✕</button>
+    <button class="ai-close" onclick={() => isOpen = false} aria-label="Close">✕</button>
   </div>
 
   <div class="ai-messages" bind:this={messagesEl}>
@@ -112,7 +111,7 @@ Keep answers friendly, brief, and focused.
   {#if showSuggestions}
     <div class="ai-suggestions">
       {#each suggestions as s}
-        <button class="chip" on:click={() => ask(s)}>{s}</button>
+        <button class="chip" onclick={() => ask(s)}>{s}</button>
       {/each}
     </div>
   {/if}
@@ -123,9 +122,9 @@ Keep answers friendly, brief, and focused.
       class="ai-input"
       placeholder="Ask me anything..."
       bind:value={input}
-      on:keydown={handleKey}
+      onkeydown={handleKey}
     />
-    <button class="ai-send" on:click={handleSend} aria-label="Send">
+    <button class="ai-send" onclick={handleSend} aria-label="Send">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
         <line x1="22" y1="2" x2="11" y2="13"/>
         <polygon points="22 2 15 22 11 13 2 9 22 2"/>

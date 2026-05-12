@@ -1,12 +1,12 @@
 <footer>
-  <span class="footer-brand">AU.</span>
+  <span class="footer-brand">NU.</span>
   <div class="footer-links">
     <a href="#hero">Home</a>
     <a href="#about">About</a>
     <a href="#projects">Work</a>
     <a href="#contact">Contact</a>
   </div>
-  <span class="footer-copy">© 2025 Ndifreke Udoh</span>
+  <span class="footer-copy">© 2026 Ndifreke Udoh</span>
 </footer>
 
 <style>

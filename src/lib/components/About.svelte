@@ -1,14 +1,14 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  let visible = false;
-  let el: HTMLElement;
+  let visible = $state(false);
+  let el = $state<HTMLElement>();
 
   onMount(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { visible = true; observer.unobserve(e.target); } });
     }, { threshold: 0.15 });
-    observer.observe(el);
+    if (el) observer.observe(el);
   });
 
   const skills = {

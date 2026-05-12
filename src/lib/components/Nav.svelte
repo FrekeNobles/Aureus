@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  let isOpen = false;
-  let theme = 'dark';
-  let scrolled = false;
+  let isOpen = $state(false);
+  let theme = $state('dark');
+  let scrolled = $state(false);
 
   onMount(() => {
     const saved = localStorage.getItem('theme') || 'dark';
@@ -29,17 +29,15 @@
   <a href="#hero" class="nav-logo">NU.</a>
 
   <ul class="nav-links">
-    <li><a href="#hero" on:click={closeMenu}>Home</a></li>
-    <li><a href="#about" on:click={closeMenu}>About</a></li>
-    <li><a href="#projects" on:click={closeMenu}>Portfolio</a></li>
-    <li><a href="#contact" on:click={closeMenu}>Contact</a></li>
+    <li><a href="#hero" onclick={closeMenu}>Home</a></li>
+    <li><a href="#about" onclick={closeMenu}>About</a></li>
+    <li><a href="#projects" onclick={closeMenu}>Portfolio</a></li>
+    <li><a href="#contact" onclick={closeMenu}>Contact</a></li>
   </ul>
 
   <div class="nav-right">
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" on:click={toggleTheme} aria-label="Toggle theme">
+    <button class="theme-toggle" onclick={toggleTheme} aria-label="Toggle theme">
       {#if theme === 'dark'}
-        <!-- Sun icon -->
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="5"/>
           <line x1="12" y1="1" x2="12" y2="3"/>
@@ -52,30 +50,27 @@
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
         </svg>
       {:else}
-        <!-- Moon icon -->
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
       {/if}
     </button>
 
-    <a href="#" class="nav-cta">Download CV</a>
+    <a href="/cv.pdf" download class="nav-cta">Download CV</a>
 
-    <!-- Hamburger -->
-    <button class="hamburger" class:open={isOpen} on:click={toggleMenu} aria-label="Toggle menu">
+    <button class="hamburger" class:open={isOpen} onclick={toggleMenu} aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- Mobile Menu -->
 {#if isOpen}
   <div class="mobile-menu">
-    <a href="#hero" on:click={closeMenu}>Home</a>
-    <a href="#about" on:click={closeMenu}>About</a>
-    <a href="#projects" on:click={closeMenu}>Portfolio</a>
-    <a href="#contact" on:click={closeMenu}>Contact</a>
-    <a href="#" class="btn-primary" on:click={closeMenu}>Download CV</a>
+    <a href="#hero" onclick={closeMenu}>Home</a>
+    <a href="#about" onclick={closeMenu}>About</a>
+    <a href="#projects" onclick={closeMenu}>Portfolio</a>
+    <a href="#contact" onclick={closeMenu}>Contact</a>
+    <a href="/cv.pdf" download class="btn-primary" onclick={closeMenu}>Download CV</a>
   </div>
 {/if}
 

@@ -1,18 +1,18 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  let name = '';
-  let email = '';
-  let message = '';
-  let submitted = false;
-  let visible = false;
-  let el: HTMLElement;
+  let name = $state('');
+  let email = $state('');
+  let message = $state('');
+  let submitted = $state(false);
+  let visible = $state(false);
+  let el = $state<HTMLElement>();
 
   onMount(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { visible = true; observer.unobserve(e.target); } });
     }, { threshold: 0.15 });
-    observer.observe(el);
+    if (el) observer.observe(el);
   });
 
   function handleSubmit(e: Event) {
@@ -43,7 +43,7 @@
     </div>
 
     <div class="contact-form-wrap" class:visible style="transition-delay: 0.15s">
-      <form on:submit={handleSubmit}>
+      <form onsubmit={handleSubmit}>
         <div class="form-group">
           <label class="form-label" for="name">Name</label>
           <input id="name" type="text" class="form-input" placeholder="Your name" bind:value={name} required />

@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  let displayRole = '';
-  let displayIntro = '';
-  let mounted = false;
+  let displayRole = $state('');
+  let displayIntro = $state('');
+  let mounted = $state(false);
 
   const roles = ['Frontend Developer', 'UI Engineer', 'React Specialist', 'Frontend Developer'];
   const introText = 'I build fast, polished web interfaces that bridge design and engineering. Passionate about performance, accessibility, and the craft of the frontend.';
