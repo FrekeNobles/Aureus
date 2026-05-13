@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0d0f1a;
+  --bg-secondary: #131629;
+  --bg-tertiary: #181c30;
+  --bg-card: #1e2238;
+  --gold: #c9a96e;
+  --gold-light: #e8c98a;
+  --gold-dim: #7a6040;
+  --text-primary: #f4f0e8;
+  --text-secondary: #9a958a;
+  --text-faint: #3a3830;
+  --border: rgba(201,169,110,0.15);
+  --border-strong: rgba(201,169,110,0.35);
+  --font-display: 'DM Serif Display', serif;
+  --font-sans: 'Syne', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-theme='light'] {
+  --bg-primary: #f9f6f0;
+  --bg-secondary: #f0ebe0;
+  --bg-tertiary: #e8e0d0;
+  --bg-card: #ffffff;
+  --gold: #a07840;
+  --gold-light: #c9a96e;
+  --gold-dim: #c9a96e;
+  --text-primary: #0d0f1a;
+  --text-secondary: #4a4540;
+  --text-faint: #c0bab0;
+  --border: rgba(120,90,40,0.15);
+  --border-strong: rgba(120,90,40,0.35);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 4px; }
