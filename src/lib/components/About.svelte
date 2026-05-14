@@ -1,25 +1,13 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-
-  let visible = $state(false);
-  let el = $state<HTMLElement>();
-
-  onMount(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { visible = true; observer.unobserve(e.target); } });
-    }, { threshold: 0.15 });
-    if (el) observer.observe(el);
-  });
-
   const skills = {
     'Languages & Frameworks': ['React', 'TypeScript', 'Vue.js', 'Next.js', 'Svelte', 'JavaScript'],
     'Tooling & More': ['TailwindCSS', 'GSAP', 'Vite', 'Git', 'PWA', 'Figma', 'REST APIs', 'WebSockets']
   };
 </script>
 
-<section id="about" bind:this={el}>
+<section id="about">
   <div class="about-grid">
-    <div class="about-text" class:visible>
+    <div class="about-text gsap-reveal">
       <div class="section-label">About Me</div>
       <h2 class="section-heading">Crafting <em>interfaces</em> that feel alive</h2>
       <p>I'm <strong>Ndifreke Udoh</strong>, a frontend developer with a sharp eye for detail and a deep love for the intersection of design and engineering. I build digital experiences that are fast, accessible, and memorable.</p>
@@ -27,12 +15,12 @@
       <p>Currently open to frontend roles and freelance collaborations where craft matters.</p>
     </div>
 
-    <div class="skills-section" class:visible style="transition-delay: 0.15s">
+    <div class="skills-section gsap-reveal" style="transition-delay: 0.15s">
       <div class="section-label">Tech Stack</div>
       {#each Object.entries(skills) as [category, items]}
         <div class="skills-group">
           <div class="skills-title">{category}</div>
-          <div class="skills-grid">
+          <div class="skills-grid gsap-stagger">
             {#each items as skill}
               <span class="skill-tag">{skill}</span>
             {/each}
