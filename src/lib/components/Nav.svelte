@@ -31,7 +31,7 @@
   <ul class="nav-links">
     <li><a href="#hero" onclick={closeMenu}>Home</a></li>
     <li><a href="#about" onclick={closeMenu}>About</a></li>
-    <li><a href="#projects" onclick={closeMenu}>Portfolio</a></li>
+    <li><a href="#projects" onclick={closeMenu}>Projects</a></li>
     <li><a href="#contact" onclick={closeMenu}>Contact</a></li>
   </ul>
 
@@ -56,7 +56,7 @@
       {/if}
     </button>
 
-    <a href="/cv.pdf" download class="nav-cta">Download CV</a>
+    <a href="/Ndifreke_Udoh_CV.pdf" download class="nav-cta">Download CV</a>
 
     <button class="hamburger" class:open={isOpen} onclick={toggleMenu} aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -68,7 +68,7 @@
   <div class="mobile-menu">
     <a href="#hero" onclick={closeMenu}>Home</a>
     <a href="#about" onclick={closeMenu}>About</a>
-    <a href="#projects" onclick={closeMenu}>Portfolio</a>
+    <a href="#projects" onclick={closeMenu}>Projects</a>
     <a href="#contact" onclick={closeMenu}>Contact</a>
     <a href="/cv.pdf" download class="btn-primary" onclick={closeMenu}>Download CV</a>
   </div>

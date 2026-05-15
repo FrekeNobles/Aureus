@@ -16,8 +16,8 @@ export const projects: Project[] = [
     desc: "A modern web application built with React and TypeScript, focused on clean component architecture and type-safe development patterns.",
     stack: ["React", "TypeScript", "Vite", "CSS Modules"],
     category: "react",
-    demo: "#",
-    repo: "#",
+    demo: "https://zylo-amber.vercel.app/",
+    repo: "https://github.com/FrekeNobles/zylo",
     initials: "ZY"
   },
   {
@@ -27,8 +27,8 @@ export const projects: Project[] = [
     stack: ["JavaScript", "PWA", "REST API"],
     category: "react",
     demo: "#",
-    repo: "#",
-    initials: "AI"
+    repo: "https://github.com/FrekeNobles/etokiAI",
+    initials: "eAI"
   },
   {
     id: 3,
@@ -36,8 +36,8 @@ export const projects: Project[] = [
     desc: "A real-time operations dashboard built with Vue, featuring live data streams, dynamic charts, and responsive monitoring interfaces.",
     stack: ["Vue.js", "WebSockets", "Chart.js", "Pinia"],
     category: "vue",
-    demo: "#",
-    repo: "#",
+    demo: "https://view-ops.vercel.app/",
+    repo: "https://github.com/FrekeNobles/ViewOps",
     initials: "VO"
   },
   {
@@ -46,8 +46,9 @@ export const projects: Project[] = [
     desc: "A Progressive Web App for habit tracking built with Next.js and TypeScript, with offline support and push notifications.",
     stack: ["Next.js", "TypeScript", "PWA", "TailwindCSS"],
     category: "next",
-    demo: "#",
-    repo: "#",
+    demo: "https://habit-me-lac.vercel.app/",
+    repo: "https://github.com/FrekeNobles/HabitMe",
     initials: "HM"
+    
   }
 ];
