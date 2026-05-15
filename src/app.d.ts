@@ -9,5 +9,8 @@ declare global {
 		// interface Platform {}
 	}
 }
+interface ImportMetaEnv {
+  readonly PUBLIC_GROQ_API_KEY: string;
+}
 
 export {};
