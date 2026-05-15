@@ -1,6 +1,6 @@
 # Aureus — Ndifreke Udoh's Developer Portfolio
 
-> A highly interactive, visually impressive personal portfolio built with SvelteKit 5, featuring a minimal brutalist aesthetic, gold accent design system, smooth GSAP animations, and an AI-powered portfolio assistant.
+> A highly interactive, visually impressive personal portfolio built with SvelteKit 5, featuring a minimal aesthetic, gold accent design system, smooth GSAP animations, and an AI-powered portfolio assistant.
 
 ---
 
@@ -221,7 +221,7 @@ The card renders automatically — no other changes needed.
 
 | Decision | Trade-off |
 |---|---|
-| Groq (LLaMA 3.1) over Claude API | Groq has a generous free tier suitable for a portfolio; Claude requires billing setup |
+| Groq (LLaMA 3.1) over Claude API or OpenAI | Groq has a generous free tier suitable for a portfolio; Others requires billing setup |
 | CSS custom properties over Tailwind for theming | More explicit control over the gold/navy palette; Tailwind's JIT doesn't support runtime theme switching as cleanly |
 | Single-page layout over multi-route | Smoother scroll experience for a portfolio; no page transition overhead |
 | GSAP over native CSS animations for entrance | More control over sequencing and easing; worth the bundle size for a portfolio |
