@@ -15,7 +15,7 @@
   ];
 
   const CONTEXT = `
-You are an AI assistant embedded in Ndifreke Udoh's portfolio website. Answer questions about him warmly and professionally. Keep responses concise (2-4 sentences max).
+You are an AI assistant embedded in Ndifreke Udoh's portfolio website. Answer questions about him warmly and professionally. Keep responses concise (2-3 sentences max).
 
 About Ndifreke:
 - Name: Ndifreke Udoh
@@ -28,55 +28,32 @@ About Ndifreke:
 
 Keep answers friendly, brief, and focused.
   `;
+ 
 
-  async function ask(question: string) {
-    messages = [...messages, { role: 'user', text: question }];
-    showSuggestions = false;
-    isTyping = true;
-    scrollToBottom();
+ async function ask(question: string) {
+  messages = [...messages, { role: 'user', text: question }];
+  showSuggestions = false;
+  isTyping = true;
+  scrollToBottom();
 
-    try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1000,
-          system: CONTEXT,
-          messages: [{ role: 'user', content: question }]
-        })
-      });
-    //   const res = await fetch(
-    //   "https://api.groq.com/openai/v1/chat/completions",
-    //   {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Bearer ${process.env.GROQ_API_KEY}`
-    //     },
-    //     body: JSON.stringify({
-    //       model: "llama-3.1-8b-instant",
-    //       temperature: 0.3,
-    //       system: CONTEXT,
-    //       messages: [
-    //         {
-    //           role: "user",
-    //           content: question
-    //         }
-    //       ]
-    //     })
-    //   }
-    // );
-      const data = await res.json();
-      const reply = data.content?.map((b: any) => b.text || '').join('') || "Sorry, I had trouble with that!";
-      messages = [...messages, { role: 'bot', text: reply }];
-    } catch {
-      messages = [...messages, { role: 'bot', text: "Oops — something went wrong. Reach out at frekenobles@gmail.com!" }];
-    }
+  try {
+   const res = await fetch('/api/chat', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ question, context: CONTEXT })
+});
 
-    isTyping = false;
-    scrollToBottom();
+const data = await res.json();
+// console.log('Chat response:', data);
+messages = [...messages, { role: 'bot', text: data.reply }];
+  } catch (err) {
+    // console.error('Chat error:', err);
+    messages = [...messages, { role: 'bot', text: "Oops — something went wrong. Reach out at frekenobles@gmail.com!" }];
   }
+
+  isTyping = false;
+  scrollToBottom();
+}
 
   function scrollToBottom() {
     setTimeout(() => { if (messagesEl) messagesEl.scrollTop = messagesEl.scrollHeight; }, 50);
