@@ -34,14 +34,14 @@
       <h2 class="section-heading">Let's <em>build</em> something</h2>
       <p>Open to frontend roles, freelance work, and interesting collaborations. If you have a project or opportunity in mind, let's talk.</p>
       <div class="contact-items">
-        <a href="mailto:hello@ndifrekeudoh.dev" class="contact-item">
-          <span>✉</span> hello@ndifrekeudoh.dev
+        <a href="mailto:frekenobles@gmail.com" class="contact-item">
+          <span>✉</span> send me a mail
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="contact-item">
-          <span>in</span> linkedin.com/in/ndifreke
+        <a href="https://linkedin.com/in/ndifreke-udoh-738346263" target="_blank" rel="noreferrer" class="contact-item">
+          <span>in</span> let's connect on linkedin
         </a>
-        <a href="https://github.com" target="_blank" rel="noreferrer" class="contact-item">
-          <span>gh</span> github.com/ndifreke
+        <a href="https://github.com/FrekeNobles" target="_blank" rel="noreferrer" class="contact-item">
+          <span>gh</span> PoW on github
         </a>
       </div>
     </div>

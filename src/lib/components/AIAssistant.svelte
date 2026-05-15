@@ -23,7 +23,7 @@ About Ndifreke:
 - Skills: React, TypeScript, Vue.js, Next.js, Svelte, JavaScript, TailwindCSS, GSAP, PWA development
 - Projects: Zylo (React/TypeScript), etokiAI (AI-powered app), ViewOps (real-time Vue dashboard), HabitMe (Next.js TypeScript PWA)
 - Available for: frontend roles, freelance, collaborations
-- Contact: hello@ndifrekeudoh.dev
+- Contact: frekenobles@gmail.com
 - Passionate about: performance, accessibility, UI polish, and the craft of frontend engineering
 
 Keep answers friendly, brief, and focused.
@@ -46,11 +46,32 @@ Keep answers friendly, brief, and focused.
           messages: [{ role: 'user', content: question }]
         })
       });
+    //   const res = await fetch(
+    //   "https://api.groq.com/openai/v1/chat/completions",
+    //   {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Authorization: `Bearer ${process.env.GROQ_API_KEY}`
+    //     },
+    //     body: JSON.stringify({
+    //       model: "llama-3.1-8b-instant",
+    //       temperature: 0.3,
+    //       system: CONTEXT,
+    //       messages: [
+    //         {
+    //           role: "user",
+    //           content: question
+    //         }
+    //       ]
+    //     })
+    //   }
+    // );
       const data = await res.json();
       const reply = data.content?.map((b: any) => b.text || '').join('') || "Sorry, I had trouble with that!";
       messages = [...messages, { role: 'bot', text: reply }];
     } catch {
-      messages = [...messages, { role: 'bot', text: "Oops — something went wrong. Reach out at hello@ndifrekeudoh.dev!" }];
+      messages = [...messages, { role: 'bot', text: "Oops — something went wrong. Reach out at frekenobles@gmail.com!" }];
     }
 
     isTyping = false;
