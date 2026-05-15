@@ -47,9 +47,9 @@
     opacity: 0; transform: translateY(24px);
     transition: opacity 0.7s, transform 0.7s;
   }
-  .about-text.visible, .skills-section.visible {
+  /* .about-text.visible, .skills-section.visible {
     opacity: 1; transform: translateY(0);
-  }
+  } */
 
   .section-label {
     font-family: var(--font-mono); font-size: 0.72rem;

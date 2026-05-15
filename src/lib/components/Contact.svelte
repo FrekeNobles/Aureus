@@ -1,31 +1,35 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-
   let name = $state('');
   let email = $state('');
   let message = $state('');
   let submitted = $state(false);
-  let visible = $state(false);
-  let el = $state<HTMLElement>();
 
-  onMount(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { visible = true; observer.unobserve(e.target); } });
-    }, { threshold: 0.15 });
-    if (el) observer.observe(el);
-  });
+ function handleSubmit(e: Event) {
+  e.preventDefault();
 
-  function handleSubmit(e: Event) {
-    e.preventDefault();
-    submitted = true;
-    setTimeout(() => submitted = false, 4000);
-    name = ''; email = ''; message = '';
-  }
+  // 1. Create the new response object
+  const newEntry = { name, email, message, id: Date.now() };
+
+  // 2. Get existing data from storage (or an empty array if it's the first time)
+  const existingEntries = JSON.parse(localStorage.getItem('user_responses') || '[]');
+
+  // 3. Add the new entry to the list
+  existingEntries.push(newEntry);
+
+  // 4. Save the updated list back to LocalStorage
+  localStorage.setItem('user_responses', JSON.stringify(existingEntries));
+
+  // UI Logic
+  console.table(newEntry);
+  submitted = true;
+  setTimeout(() => submitted = false, 4000);
+  name = ''; email = ''; message = '';
+}
 </script>
 
-<section id="contact" bind:this={el}>
+<section id="contact" >
   <div class="contact-grid">
-    <div class="contact-info" class:visible>
+    <div class="contact-info gsap-reveal" >
       <div class="section-label">Contact</div>
       <h2 class="section-heading">Let's <em>build</em> something</h2>
       <p>Open to frontend roles, freelance work, and interesting collaborations. If you have a project or opportunity in mind, let's talk.</p>
@@ -42,7 +46,7 @@
       </div>
     </div>
 
-    <div class="contact-form-wrap" class:visible style="transition-delay: 0.15s">
+    <div class="contact-form-wrap gsap-reveal" style="--delay: 0.15s">
       <form onsubmit={handleSubmit}>
         <div class="form-group">
           <label class="form-label" for="name">Name</label>
@@ -81,9 +85,9 @@
     opacity: 0; transform: translateY(24px);
     transition: opacity 0.7s, transform 0.7s;
   }
-  .contact-info.visible, .contact-form-wrap.visible {
+  /* .contact-info.visible, .contact-form-wrap.visible {
     opacity: 1; transform: translateY(0);
-  }
+  } */
 
   .section-label {
     font-family: var(--font-mono); font-size: 0.72rem;

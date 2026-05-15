@@ -39,9 +39,8 @@
     <div class="hero-eyebrow">Available for work</div>
     <h1 class="hero-name">Ndifreke<br /><em>Udoh.</em></h1>
     <div class="hero-role">
-      {displayRole}<span class="cursor">|</span>
-    </div>
-    <p class="hero-intro">{displayIntro}</p>
+      {displayRole}</div>
+    <p class="hero-intro">{displayIntro} <span class="cursor">|</span></p>
     <div class="hero-actions">
       <a href="#projects" class="btn-primary">View Projects</a>
       <a href="#contact" class="btn-ghost">Get In Touch</a>
@@ -76,11 +75,11 @@
     <div class="hero-card">
       <div class="stat-grid">
         <div class="stat-item">
-          <div class="stat-num">4+</div>
+          <div class="stat-num">8+</div>
           <div class="stat-label">Projects Shipped</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">3+</div>
+          <div class="stat-num">2+</div>
           <div class="stat-label">Years Building</div>
         </div>
         <div class="stat-item">
