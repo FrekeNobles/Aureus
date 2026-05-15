@@ -6,7 +6,7 @@
 
 ##  Live Demo
 
-> [live link](https://aureus-ganna.vercel.app)
+> [live link](https://aureus-gamma.vercel.app)
 
 ##  Repository
 
