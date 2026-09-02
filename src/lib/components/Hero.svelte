@@ -5,7 +5,7 @@
   let displayIntro = $state('');
   let mounted = $state(false);
 
-  const roles = ['Frontend Developer', 'UI Engineer', 'React Specialist', 'Frontend Developer'];
+  const roles = ['Frontend Developer', 'UI Engineer', 'React/Next Specialist', 'Software Developer'];
   const introText = 'I build fast, polished web interfaces that bridge design and engineering. Passionate about performance, accessibility, and the craft of the frontend.';
 
   let roleIdx = 0;
