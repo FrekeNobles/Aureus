@@ -28,4 +28,4 @@
   <Contact />
 </main>
 <Footer />
-<AIAssistant />
+<AIAssistant />  

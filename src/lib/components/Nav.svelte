@@ -70,7 +70,7 @@
     <a href="#about" onclick={closeMenu}>About</a>
     <a href="#projects" onclick={closeMenu}>Projects</a>
     <a href="#contact" onclick={closeMenu}>Contact</a>
-    <a href="/cv.pdf" download class="btn-primary" onclick={closeMenu}>Download CV</a>
+    <a href="/Ndifreke_Udoh_CV.pdf" download class="btn-primary" onclick={closeMenu}>Download CV</a>
   </div>
 {/if}
 
